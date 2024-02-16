@@ -1,0 +1,734 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+         <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <title>VEHICLES CHECKLIST SYTSEM</title>
+
+
+
+       <!--HII NI KWA AJILI YA ICONS ZOTE--->
+ <link href="{% static 'Main_Quiz_App/assets/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+
+
+
+
+
+
+    
+
+ <!-- Vendor CSS Files ----->
+   
+
+    <link href="{% static 'Main_Quiz_App/assets/css/bootstrap.css' %}" rel="stylesheet">
+    
+
+
+
+        <link href="{% static 'Main_Quiz_App/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+
+    <link href="{% static 'Main_Quiz_App/assets/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+
+
+
+
+<!-- Vendor CSS Files -->
+    <link href="{% static 'Main_Quiz_App/assets/vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+    
+    <link href="{% static 'Main_Quiz_App/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'Main_Quiz_App/assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+    <link href="{% static 'Main_Quiz_App/assets/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+    <link href="{% static 'Main_Quiz_App/assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+    <link href="{% static 'Main_Quiz_App/assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+    <link href="{% static 'Main_Quiz_App/assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+
+
+    
+    <style type="text/css">
+        
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+
+}
+.container-fluid{
+    /*background: #353535;*/
+    padding-top: 60px;
+
+    background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("{% static 'Main_Quiz_App/assets/img/i1.jpeg' %}");
+    background-size: contain;
+    height: 500px;
+
+}
+.title-container{
+    position: relative;
+    width: 100%;
+    /*height: 100%;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: : 10px;
+    margin-bottom: 50px;
+    
+}
+.title-container h2{
+    position: absolute;
+    font-size: 50px;
+    color: wheat;
+    /*line-height: 1cm;*/
+    text-shadow: -2px 2px 0 #222,
+    -4px 4px 0 #222,
+    -6px 6px 0 #222,
+    -8px 8px 0 #222,
+    -10px 10px 0 #222,
+    -12px 12px 0 #222,
+    -14px 14px 0 #222,
+    -16px 16px 0 #222,
+
+    -18px 18px 20px #000,
+    -18px 18px 30px #000,
+    -18px 18px 50px #000,
+    -18px 18px 150px #000;
+
+}
+
+.title-container h2:nth-child(2){
+    color: #03a9f4;
+    text-shadow: -2px 2px 0 #0375a9,
+    -4px 4px 0 #0375a9,
+    -6px 6px 0 #0375a9,
+    -8px 8px 0 #0375a9,
+    -10px 10px 0 #0375a9,
+    -12px 12px 0 #0375a9,
+    -14px 14px 0 #0375a9,
+    -16px 16px 0 #0375a9,
+
+    -18px 18px 20px #000,
+    -18px 18px 30px #000,
+    -18px 18px 50px #000,
+    -18px 18px 150px #000;
+
+    clip-path: circle(20% at 50% 50%);
+    transition: clip-path 2.5s;
+}
+
+.title-container h2:hover:nth-child(2){
+    clip-path: circle(50% at 50% 100%);
+    z-index: 100;
+}
+
+
+
+
+.title-container h2:nth-child(3){
+    color: #2cff37;
+    text-shadow: -2px 2px 0 #08a010,
+    -4px 4px 0 #08a010,
+    -6px 6px 0 #08a010,
+    -8px 8px 0 #08a010,
+    -10px 10px 0 #08a010,
+    -12px 12px 0 #08a010,
+    -14px 14px 0 #08a010,
+    -16px 16px 0 #08a010,
+
+    -18px 18px 20px #000,
+    -18px 18px 30px #000,
+    -18px 18px 50px #000,
+    -18px 18px 150px #000;
+
+    clip-path: circle(20% at 0% 10%);
+    transition: clip-path 2.5s;
+}
+
+.title-container h2:hover:nth-child(3){
+    clip-path: circle(120% at 0% 10%);
+    z-index: 100;
+}
+
+
+
+
+.title-container h2:nth-child(4){
+    color: #e91e63;
+    text-shadow: -2px 2px 0 #ae0840,
+    -4px 4px 0 #ae0840,
+    -6px 6px 0 #ae0840,
+    -8px 8px 0 #ae0840,
+    -10px 10px 0 #ae0840,
+    -12px 12px 0 #ae0840,
+    -14px 14px 0 #ae0840,
+    -16px 16px 0 #ae0840,
+
+    -18px 18px 20px #000,
+    -18px 18px 30px #000,
+    -18px 18px 50px #000,
+    -18px 18px 150px #000;
+
+    clip-path: circle(20% at 100% 50%);
+    transition: clip-path 2.5s;
+}
+
+.title-container h2:hover:nth-child(4){
+    clip-path: circle(120% at 100% 50%);
+    z-index: 100;
+}
+
+
+
+
+
+
+
+
+
+
+/*_____________LOGIN BUTTON STYLES_________*/
+
+
+.login{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: rgba(0,0,0,.5);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  border-bottom: 1.50px solid #03e9f4;
+  border-radius: 10px;
+}
+h2{
+  margin: 0 0 30px;
+  padding: 0;
+  color: #03e9f4;
+  text-align: center;
+}
+.user-box{
+  position: relative;
+}
+.user-box input{
+  width: 100%;
+  padding: 10px;
+  font-size: 17px;
+  color: white;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #03e9f4;
+  outline: none;
+  background: transparent;
+}
+.user-box label{
+  position: absolute;
+  top:0;
+  left: 0;
+  padding: 10px 0;
+  color: #03e9f4;
+  pointer-events: none;
+  font-size: 16px;
+  transition: 0.5s;
+}
+.user-box input:focus ~ label,
+.user-box input:valid ~ label{
+  top: -20px;
+  left: 0;
+  color: #03e9f4;
+  font-size: 12px;
+}
+p{
+  color: darkgray;
+  cursor: pointer;
+}
+p span{
+  color: #03e9f4;
+  float: right;
+}
+.link-btn{
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #03e9f4;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: 0.5s;
+  margin-top: 40px;
+  letter-spacing: 4px;
+}
+.link-btn:hover{
+  background: #03e9f4;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #03e9f4,
+              0 0 25px #03e9f4,
+              0 0 50px #03e9f4,
+              0 0 100px #03e9f4;
+}
+
+input[type="submit"]{
+
+    position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #03e9f4;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: 0.5s;
+  margin-top: 40px;
+  letter-spacing: 4px;
+
+
+
+}
+/*input[type="submit"]{
+    background: #03e9f4;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #03e9f4,
+              0 0 25px #03e9f4,
+              0 0 50px #03e9f4,
+              0 0 100px #03e9f4;
+
+    }*/
+.link-btn span{
+  position: absolute;
+  display: block;
+}
+.link-btn span:nth-child(1){
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #03e9f4);
+  animation: animatedbtn1 1s linear infinite;
+}
+@keyframes animatedbtn1{
+  0%{
+    left: -100%;
+  }
+  50%,100%{
+    left: 100%;
+  }
+}
+.link-btn span:nth-child(2){
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, #03e9f4);
+  animation: animatedbtn2 1s linear infinite;
+  animation-delay: .25s;
+}
+@keyframes animatedbtn2{
+  0%{
+    top: -100%;
+  }
+  50%,100%{
+    top: 100%;
+  }
+}
+
+.link-btn span:nth-child(3){
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #03e9f4);
+  animation: animatedbtn3 1s linear infinite;
+  animation-delay: .5s;
+}
+@keyframes animatedbtn3{
+  0%{
+    right: -100%;
+  }
+  50%,100%{
+    right: 100%;
+  }
+}
+
+.link-btn span:nth-child(4){
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, #03e9f4);
+  animation: animatedbtn4 1s linear infinite;
+  animation-delay: .75s;
+}
+@keyframes animatedbtn4{
+  0%{
+    bottom: -100%;
+  }
+  50%,100%{
+    bottom: 100%;
+  }
+}
+@media screen and (max-width:430px){
+  .login{
+    width: 90%;
+  }
+}
+
+
+
+.card-header{
+    background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url("{% static 'Main_Quiz_App/assets/img/1q.jpeg' %}");
+    background-size: cover;
+
+
+}
+
+
+
+
+
+
+
+
+
+
+/*-----------------------------FOUTER-------------*/
+
+
+
+footer{
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  flex-flow: row wrap;
+  padding: 50px;
+  color: #fff;
+  background-color: #011c39;
+
+}
+.footer > *{
+  flex: 1 100%;
+}
+.footer-left{
+  margin-right: 1.25em;
+  margin-bottom: 2em;
+}
+.footer-left img{
+  width: 50px;
+
+}
+h2{
+  font-weight: 600;
+  font-size: 17px;
+  color: red;
+}
+.footer ul{
+  list-style: none;
+  padding-left: 0;
+}
+.footer li{
+  line-height: 2em;
+}
+.footer a{
+  text-decoration: none;
+}
+.footer-right{
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  flex-flow: row wrap;
+
+}
+.footer-right > *{
+  flex: 1 50%;
+  margin-right: 1.25em;
+}
+.box a{
+  color: white;
+}
+.footer-bottom{
+  text-align: center;
+  color: #999;
+  padding-top: 50px;
+}
+.footer-left p{
+  padding-right: 20%;
+  color: white;
+}
+
+.socials a{
+  background: #364a62;
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  margin-right: 10px;
+}
+.socials a i{
+  color: #e7f2f4;
+  padding: 10px 12px;
+  font-size: 20px;
+}
+@media screen and  (min-width: 600px){
+  .footer-right > *{
+    flex: 1;
+  }
+  .footer-left{
+    flex: 1 0px;
+  }
+  .footer-right{
+    flex: 2 0px;
+  }
+}
+
+
+@media (max-width: 600px){
+    .footer{
+      padding: 15px;
+    }
+
+
+  }
+
+
+
+
+  .homeheader{
+    font-size: 25px;
+    margin-top: 120px;
+    color: wheat;
+    font-weight: bold;
+
+  }
+
+    </style>
+
+</head>
+<body>
+
+<div class="container-fluid">
+    
+
+    <div class=" row title-container">
+        <h3 class="homeheader">VEHICLES CHECKLIST SYTSEM</h3>
+        
+    </div>
+
+
+
+    <div class="row" style="margin-top: 100px;">
+
+        
+
+
+
+
+        <div class="col-md-12"><!-- mwanzo wa column ya 6 -->
+
+<center>    
+
+  {% if not user.is_authenticated %}
+     <a href="{% url 'login' %}" class="link-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+
+
+
+        <button type="submit"  style="background-color: green;color: white;padding: 10px;padding-right: 20px;padding-left: 20px;font-size: 16px;border-radius: 10px;">Signin</button>
+      </a>
+
+
+         <a href="{% url 'register' %}" class="link-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+
+
+
+        <button type="submit"  style="background-color: blue;color: white;padding: 10px;padding-right: 20px;padding-left: 20px;font-size: 16px;border-radius: 10px;">Signup</button>
+      </a>
+
+      {% else %}
+         <a href="{% url 'CheckListForms' %}" class="link-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+
+
+
+        <button type="submit"  style="background-color: blue;color: white;padding: 10px;padding-right: 20px;padding-left: 20px;font-size: 16px;border-radius: 10px;">Get Started</button>
+      </a>
+
+      {% endif %}
+
+
+</center>
+
+        </div> <!-- mwisho wa column ya 12 -->
+        
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- mwanzo wa row ya card -->
+    <div class="row" style="margin-top: 20px;">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div><!---mwisho wa row---->
+
+
+
+    </div> <!-- mwisho wa container -->
+
+
+
+
+
+
+
+
+
+<footer class="footer" style="margin-top: 10px;">
+
+  
+
+
+<ul class="footer-right">
+  <li>
+    <h2>Services</h2>
+
+
+    <ul class="box">
+      <li><a href="">Cars Maintenance</a></li>
+      <li><a href="">Vehicles Checklist</a></li>
+
+    </ul>
+
+
+  </li>
+
+
+
+
+<li class="features">
+    <h2>Useful Links</h2>
+
+
+    <ul class="box">
+     
+      <li><a href="">Orders</a></li>
+      <li><a href="">Services</a></li>
+      <li><a href="https://DimosoCv.pythonanywhere.com/">About Me</a></li>
+   
+    </ul>
+
+
+  </li>
+
+
+
+  <li>
+    <h2>Address</h2>
+
+
+    <ul class="box">
+      <li><a href="">Ikuti, Mbeya</a></li>
+      <li><a href="">Magomeni, Dar es salaam</a></li>
+      <li><a href="">Arusha</a></li>
+      <li><a href="">Doodoma</a></li>
+      <li><a href="">Mwanza</a></li>
+
+    </ul>
+
+
+  </li>
+
+
+
+
+
+</ul><!---mwisho wa footer-right--->
+
+
+
+ <div class="footer-bottom">
+
+  <p>All Right Reserved by &copy; Vehicles Checklist 2024</p>
+
+ </div>
+
+
+
+</footer>
+
+
+
+
+
+   <!--jquery code for autocomplete javascriptcode---->
+<script src="{% static 'Main_Quiz_App/assets/jqueryui/external/jquery/jquery.js' %}" type="text/javascript"></script>
+<script src="{% static 'Main_Quiz_App/assets/jqueryui/jquery-ui.js' %}" type="text/javascript"></script>
+
+
+<!--link kwa ajiliya kukreate modal--->
+<script src="{% static 'Main_Quiz_App/assets/js/bootstrap.bundle.min.js' %}"></script>
+    <!-- --------- Owl-Carousel js ------------------->
+    <script src="{% static 'Main_Quiz_App/assets/js/owl.carousel.min.js' %}"></script>
+
+    <!-- ------------ AOS js Library  ------------------------- -->
+    <script src="{% static 'Main_Quiz_App/assets/js/aos.js' %}"></script>
+
+    <!-- Custom Javascript file -->
+    <script src="{% static 'Main_Quiz_App/assets/js/main.js' %}"></script>
+
+
+
+    <link href="{% static 'Main_Quiz_App/assets/js/bootstrap.min.js' %}" rel="stylesheet">
+
+    <!-- Vendor JS Files -->
+  <script src="{% static 'Main_Quiz_App/assets/js/bootstrap.bundle.min.js' %}"></script>
+
+
+
+</body>
+</html>

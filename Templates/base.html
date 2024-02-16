@@ -1,0 +1,1042 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!----======== CSS ======== -->
+    <!--HII NI KWA AJILI YA ICONS ZOTE--->
+ <link href="{% static 'Quiz_App/assets/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+
+ <!----===== Boxicons CSS ===== -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+
+
+     <!---jqeury css link---->
+     <link rel="stylesheet" href="{% static 'Quiz_App/assets/jqueryui/jquery-ui.css' %}">
+    <link rel="stylesheet" href="{% static 'Quiz_App/assets/jqueryui/jquery-ui.structure.min.css' %}">
+    <link rel="stylesheet" href="{% static 'Quiz_App/assets/jqueryui/jquery-ui.structure.css' %}">
+    <link rel="stylesheet" href="{% static 'Quiz_App/assets/jqueryui/jquery-ui.theme.min.css' %}">
+     <link rel="stylesheet" href="{% static 'Quiz_App/assets/jqueryui/jquery-ui.theme.css' %}">
+
+
+     <!-- Vendor CSS Files ----->
+    <link href="{% static 'Quiz_App/assets/css/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'Quiz_App/assets/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'Quiz_App/assets/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <style type="text/css">
+
+      /* HIZI NI STYLE KWA AJILI YA NAVBAR */
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body{
+        /* background-color: rgb(5,5,49);*/
+        background-color: white;
+      }
+      a{
+        text-decoration: none;
+        font-size: 20px;
+        color: whitesmoke;
+      }
+      a:hover{
+        color: white;
+      }
+      .navbar{
+        padding: 10px 20px;
+        display: flex;
+        width: 100%;
+        align-items: center;
+        background-color: rgb(5,5,49);
+        position: fixed;
+        z-index: 1;
+      }
+      .navbar ul{
+        flex: 1;
+        text-align: right;
+
+      }
+      .navbar ul li{
+        display: inline-block;
+        margin: 0 30px;
+      }
+      .logo{
+        font-size: 35px;
+        color: whitesmoke;
+
+      }
+      .mobile-list{
+        display: none;
+      }
+      @media only screen and (max-width: 800px){
+        .navbar .desktop-list{
+          display: none;
+        }
+        .mobile-list{
+          background-color: rgb(5,5,49);
+          display: block;
+          color: whitesmoke;
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          width: 100%;
+          padding: 10px;
+        }
+        .mobile-list i{
+          font-size: 7vmin;
+          cursor: pointer;
+        }
+        .mobile-list i:hover i{
+          color: rgb(5,5,49);
+        }
+
+      }
+
+
+
+
+    /* STYLE KWA AJILI YA NAVBAR ZINAISHIA HAPA */
+
+
+
+
+
+
+
+
+
+/*kwa ajili ya kustyle form zote */
+.follow{
+
+    border: 1px solid #ddd;
+    display: flex;
+    overflow-x: auto;
+    height: 6cm;
+}
+.follow::-webkit-scrollbar{
+    width: 0;
+}
+.follow .People{
+    min-width: 150px;
+    height: 150px;
+    line-height: 50px;
+    text-align: center;
+    background-color: ;
+    margin-right: 1cm;
+}
+
+
+
+.wrapper{
+  width: 100%;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 4px 10px 1px rgba(0,0,0,0.1);
+}
+.wrapper .title{
+  height: 90px;
+  background: #16a085;
+  border-radius: 5px 5px 0 0;
+  color: #fff;
+  font-size: 30px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wrapper form{
+  padding: 30px 25px 25px 25px;
+}
+.wrapper form .row{
+  height: 100%;
+  margin-bottom: 15px;
+  position: relative;
+
+}
+.wrapper form .row input{
+  height: 100%;
+  width: 100%;
+  outline: none;
+  padding-left: 60px;
+  border-radius: 5px;
+  border: 3px solid black;
+
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+form .row input:focus{
+  border-color: #16a085;
+  box-shadow: inset 0px 0px 2px 2px rgba(26,188,156,0.25);
+}
+form .row input::placeholder{
+  color: #999;
+}
+.wrapper form .row i{
+  position: absolute;
+  width: 47px;
+  height: 100%;
+  color: #fff;
+  font-size: 18px;
+  background: #16a085;
+  border: 1px solid #16a085;
+  border-radius: 5px 0 0 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wrapper form .pass{
+  margin: -8px 0 20px 0;
+}
+.wrapper form .pass a{
+  color: #16a085;
+  font-size: 17px;
+  text-decoration: none;
+}
+.wrapper form .pass a:hover{
+  text-decoration: underline;
+}
+.wrapper form .button input{
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  padding-left: 0px;
+  background: #16a085;
+  border: 1px solid #16a085;
+  cursor: pointer;
+}
+form .button input:hover{
+  background: #12876f;
+}
+.wrapper form .signup-link{
+  text-align: center;
+  margin-top: 20px;
+  font-size: 17px;
+}
+.wrapper form .signup-link a{
+  color: #16a085;
+  text-decoration: none;
+}
+form .signup-link a:hover{
+  text-decoration: underline;
+}
+.btn-danger{
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  padding-left: 0px;
+  background: red;
+  border: 1px solid #16a085;
+  cursor: pointer;
+
+}
+
+
+
+
+
+
+
+
+
+
+/*kwa ajili ya kudisplay posts zote */
+:root {
+  --white: #fff;
+  --background: #f0f2f5;
+  --hover-shadow: #f2f2f2;
+  --hover-shadow-2: #e4e6e9;
+  --border: #ccc;
+  --box-shadow: rgba(0, 0, 0, 0.2);
+  --reactions-links: #65676b;
+  --black1: #1c1e21;
+  --black2: #050505;
+  --green: #2f9a48;
+}
+
+html {
+  height: 100%;
+  font-size: 62.5%;
+}
+
+
+
+
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+/***************
+ * POST HEADER *
+ ***************/
+
+.post {
+  background: var(--white);
+  width: 100%;
+  max-width: 50rem;
+  padding-bottom: 5rem;
+  border-radius: 1rem;
+  box-shadow: 0 0.1rem 0.2rem var(--box-shadow);
+}
+
+.post__header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.2rem 1.6rem 0 1.6rem;
+}
+
+/* Header left */
+.header__left {
+  flex: 1;
+}
+
+.author__name:hover,
+.post__date:hover {
+  text-decoration: underline;
+}
+
+.author__verified,
+.post__privacy,
+.options__icon {
+  display: inline-block;
+  width: 1.2rem;
+  height: 1.2rem;
+  background-image: url(../images/icons-list-1.png);
+  background-size: 7.1rem 43.2rem;
+  background-repeat: no-repeat;
+  background-position: -1.7rem -38.6rem;
+}
+
+.author__name {
+  margin-right: 0.2rem;
+}
+
+.post__author-pic {
+  float: left;
+  width: 4rem;
+  height: 4rem;
+  margin-right: 0.8rem;
+  border-radius: 50%;
+  box-shadow: 0 0.1rem 0.2rem var(--box-shadow);
+  transition: filter 0.2s ease;
+}
+
+.post__author-pic:hover {
+  filter: brightness(0.95);
+}
+
+.post__author {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--black2);
+}
+
+.post__date {
+  display: block;
+  float: left;
+  font-size: 1.3rem;
+  color: var(--black1);
+}
+
+/* Dot between post author and post date */
+.post__date-privacy-separator {
+  position: relative;
+  bottom: 0.1rem;
+}
+
+.post__privacy {
+  background-image: url(../images/icons-list-2.png);
+  background-size: 2.6rem 89.4rem;
+  background-position: 0 -78.2rem;
+  opacity: 0.6;
+}
+
+/* Header right */
+.post__options {
+  padding: 1rem;
+  border-radius: 50%;
+  line-height: 1rem;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+}
+
+.post__options:hover {
+  background: var(--hover-shadow);
+}
+
+.options__icon {
+  height: 2rem;
+  width: 2rem;
+  position: relative;
+  background-size: 7.4rem 43rem;
+  background-position: -2.2rem -24rem;
+  opacity: 0.6;
+}
+
+/****************
+ * POST CONTENT *
+ ****************/
+
+.content__paragraph {
+  font-size: 1.5rem;
+  padding: 0.8rem 1.6rem 0.8rem 1.6rem;
+}
+
+.content__image {
+  width: 100%;
+
+  object-fit: cover;
+  display: block;
+}
+
+.content__image:hover {
+  cursor: pointer;
+}
+
+/***************
+ * POST FOOTER *
+ ***************/
+
+/* REACTIONS */
+.footer__reactions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 1.6rem;
+  color: var(--reactions-links);
+  font-size: 1.5rem;
+}
+
+.reactions__emojis {
+  display: flex;
+  align-items: center;
+}
+
+.emojis__like,
+.emojis__haha,
+.emojis__love {
+  width: 1.8rem;
+  height: 1.8rem;
+  position: relative;
+  cursor: pointer;
+}
+
+.emojis__like {
+  z-index: 2;
+}
+
+.emojis__haha {
+  z-index: 1;
+  left: -0.2rem;
+}
+
+.emojis__love {
+  left: -0.4rem;
+}
+
+.emojis__count {
+  margin-left: 0.3rem;
+}
+
+.comment-shares__shares {
+  margin-left: 0.2rem;
+}
+
+.emojis__count:hover,
+.comment-shares__comments:hover,
+.comment-shares__shares:hover {
+  text-decoration: underline;
+}
+
+/* FOOTER BUTTONS (LIKE, COMMENT AND SHARE) */
+.footer__buttons {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 0 1.2rem;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.buttons__like,
+.buttons__comment,
+.buttons__share {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  height: 3.5rem;
+  margin: 0.2rem 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  color: var(--reactions-links);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.buttons__like:hover,
+.buttons__comment:hover,
+.buttons__share:hover {
+  background: var(--hover-shadow);
+}
+
+.like__icon,
+.comment__icon,
+.share__icon {
+  width: 1.8rem;
+  height: 1.8rem;
+  display: inline-block;
+  background-image: url("../images/icons-list-3.png");
+  background-size: 2.6rem 77.4rem;
+  background-repeat: no-repeat;
+  opacity: 0.6;
+  margin-right: 0.5rem;
+}
+
+.like__icon {
+  background-position: 0 -18rem;
+}
+
+.comment__icon {
+  background-position: 0 -14rem;
+}
+
+.share__icon {
+  background-position: 0 -20rem;
+}
+
+/* POST COMMENTS */
+.footer__comments {
+  padding: 0.8rem 1.2rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: right;
+  color: var(--reactions-links);
+}
+
+/* Comments filter */
+.comments__filter {
+  display: inline-block;
+  margin-bottom: 0.8rem;
+  cursor: pointer;
+}
+
+.filter__icon {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  background-image: url("{% static 'Quiz_App/assets/img/icons-list-4.png' %}");
+  background-size: 7.4rem 43.4rem;
+  background-repeat: no-repeat;
+  background-position: -5.4rem -36.4rem;
+  opacity: 0.6;
+  vertical-align: middle;
+}
+
+/* "Write a comment..." box */
+.comments__box {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.box__profile {
+  margin-right: 1rem;
+  position: relative;
+}
+
+.box__profile::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 0.7rem;
+  height: 0.7rem;
+  bottom: 0.3rem;
+  left: 2.3rem;
+  background: var(--green);
+  border: 0.3rem solid var(--white);
+  border-radius: 50%;
+}
+
+.box__profile:hover {
+  cursor: pointer;
+}
+
+.profile__pic {
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 50%;
+}
+
+.box__bar {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.bar__input {
+  width: 100%;
+  background: var(--background);
+  border: none;
+  padding: 12px;
+  font-size: 1.5rem;
+  color: rgba(5, 5, 5, 0.8);
+  border-top-left-radius: 2rem;
+  border-bottom-left-radius: 2rem;
+  outline: none;
+  flex: 1;
+}
+
+.bar__input::placeholder {
+  opacity: 0.8;
+}
+
+.bar__input:focus::-webkit-input-placeholder {
+  opacity: 0.6;
+}
+
+.bar__emojis {
+  display: flex;
+  align-items: center;
+  height: 4.16rem;
+  background: var(--background);
+  padding-right: 1.2rem;
+  border-top-right-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+}
+
+.emojis__insert,
+.emojis__attach,
+.emojis__gif,
+.emojis__sticker {
+  border-radius: 50%;
+  padding: 0.5rem;
+  line-height: 0.5rem;
+  margin-left: 0.3rem;
+  cursor: pointer;
+}
+
+.emojis__insert:hover,
+.emojis__attach:hover,
+.emojis__gif:hover,
+.emojis__sticker:hover {
+  background: var(--hover-shadow-2);
+}
+
+.insert__emoji,
+.attach__emoji,
+.gif__emoji,
+.sticker__emoji {
+  width: 1.6rem;
+  height: 1.6rem;
+  display: inline-block;
+  background-image: url("{% static 'Quiz_App/assets/img/icons-list-3.png' %}");
+  background-size: 26px 774px;
+  background-repeat: no-repeat;
+  opacity: 0.6;
+}
+
+.insert__emoji {
+  background-position: 0 -328px;
+}
+
+.attach__emoji {
+  background-position: 0 -274px;
+}
+
+.gif__emoji {
+  background-position: 0 -346px;
+}
+
+.sticker__emoji {
+  background-position: 0 -400px;
+}
+
+/* Friends comments */
+.comments__friend-comment {
+  display: flex;
+  text-align: start;
+}
+
+.friend-comment__pic {
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 50%;
+  margin-right: 1rem;
+  cursor: pointer;
+  transition: filter 0.2s ease;
+}
+
+.friend-comment__pic:hover {
+  filter: brightness(0.95);
+}
+
+.friend-comment__comment {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-right: 0.5rem;
+  padding: 0.8rem 1.2rem;
+  background: var(--background);
+  border-radius: 1.5rem;
+}
+
+.comment__author {
+  align-self: flex-start;
+  color: var(--black2);
+  font-size: 1.35rem;
+}
+
+.comment__author:hover {
+  text-decoration: underline;
+}
+
+.comment__content {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--black2);
+}
+
+.comment__reactions {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: -1.5rem;
+  right: 0;
+  padding: 0.2rem 0.5rem;
+  background: var(--white);
+  box-shadow: 0 0.1rem 0.2rem var(--box-shadow);
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+.reactions__emojis {
+  width: 1.6rem;
+  height: 1.6rem;
+  position: relative;
+}
+
+.reactions__like {
+  z-index: 2;
+}
+
+.reactions__haha {
+  z-index: 1;
+  left: -0.3rem;
+}
+
+.reactions__love {
+  left: -0.6rem;
+}
+
+.reactions__count {
+  position: relative;
+  right: 0.1rem;
+  font-size: 1.32rem;
+  font-weight: 400;
+  color: var(--reactions-links);
+}
+
+.friend-comment__options {
+  align-self: center;
+  padding: 0.8rem;
+  border-radius: 50%;
+  line-height: 0.8rem;
+  cursor: pointer;
+}
+
+.friend-comment__options:hover {
+  background: var(--hover-shadow);
+}
+
+.options__comment {
+  width: 1.6rem;
+  height: 1.6rem;
+  background-position: 0 -36.8rem;
+  background-size: 7.4rem 44.6rem;
+  background-image: url("{% static 'Quiz_App/assets/img/icons-list-5.png' %}");
+}
+
+.comment__links,
+.comment__replies {
+  position: absolute;
+}
+
+/* Like, reply and comment date */
+.comment__links {
+  bottom: -2rem;
+  color: var(--reactions-links);
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.comment__replies {
+  display: flex;
+  align-items: center;
+  bottom: -4.5rem;
+}
+
+.comment__replies:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.links__like,
+.links__reply {
+  font-weight: 700;
+}
+
+.links__like:hover,
+.links__reply:hover,
+.links__date:hover {
+  text-decoration: underline;
+}
+
+.replies__emoji {
+  width: 1.6rem;
+  height: 1.6rem;
+  background-image: url({% static 'Quiz_App/assets/img/icons-list-6.png' %});
+  background-position: -5.4rem -24.4rem;
+  background-size: 7.4rem 32.2rem;
+  background-repeat: no-repeat;
+  display: inline-block;
+  opacity: 0.6;
+  margin-right: 0.5rem;
+}
+
+.comments__more-comments {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  bottom: -5rem;
+}
+
+.more-comments__link:hover {
+  text-decoration: underline;
+}
+
+.more-comments__count {
+  font-weight: 400;
+}
+
+
+
+
+
+    </style>
+
+</head>
+<body>
+
+
+
+
+<!---MWANZO WA HEADER---->
+
+
+<nav class="navbar">
+  <h1 class="logo">UC-<span style="color: red;font-weight: bold;">App</span></h1>
+
+
+
+  <ul class="desktop-list">
+<li><a href="/" style="color: white;text-decoration: none;">Home</a></li>
+<li><a href="" style="color: white;text-decoration: none;">Chat</a></li>
+
+
+    <li data-bs-toggle="modal" data-bs-target="#menu" style="color: white;font-size: 20px;margin-right: 5px;"><i class='fa fa-bars icon' data-bs-toggle="modal" data-bs-target="#menu" style="color: white;font-size: 20px;margin-right: 5px;"></i>Menu</li>
+
+  </ul>
+
+
+
+</nav>
+
+
+
+<!---MWISHO WA HEADER---->
+
+
+
+
+<!-- Modal  for menu -->
+
+
+<div class="modal fade" id="menu" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel"> MENU </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" style="background-color: #128C7E;font-size: 22px;">
+
+         <div >
+
+      {% if user.is_authenticated %}
+
+      <div class="row">
+        <!--hii nikwa ajili ya kusearch user--->
+               <form action="/search" method="POST" enctype="multipart/form-data" >
+
+                   {% csrf_token %}
+
+
+                       <input type="text" name="username" id="searchii" placeholder="Enter Username" required style="padding: 10px; border-radius: 10px;color: black;font-weight: bold;margin-bottom: 5px;"><br>
+
+
+                     <button type="submit" style="background-color: #128C7E;color: white;border: 1px solid #128C7E;"><i class='bx bx-search icon'></i></button>
+                   </form>
+
+<!--------mwisho hapa kwa ajili ya kusearch-------->
+
+      </div>
+
+
+
+
+
+
+
+
+  <a href="" style="font-size: 22px;font-weight: bold;color: white;text-decoration: none;"> Group Chat  </a><br>
+
+  {% else %}
+  <a href="" style="font-size: 22px;font-weight: bold;color: white;text-decoration: none;"> SignIn </a><br>
+
+  <a href="" style="font-size: 22px;font-weight: bold;color: white;text-decoration: none;"> SignUp  </a><br>
+  {% endif %}
+
+
+</div>
+
+
+
+
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" style="font-size: 18px;">Close</button>
+
+
+
+
+             </div>
+    </div>
+  </div>
+</div>
+<!---mwisho wa modal---->
+
+
+
+
+
+
+
+
+
+    <section class="home">
+
+
+
+{% block content %}
+
+{% endblock %}
+
+            </section>
+
+
+<nav class="navbar">
+<ul class="mobile-list">
+    <li><a href="/"><i class='bx bx-home-alt icon' style="color: white;"></i></a></li>
+    <li><a href=""><i class='fa fa-envelope icon' style="color: white;"></i></a></li>
+
+    <li><i class='fa fa-bars icon' data-bs-toggle="modal" data-bs-target="#menu" style="color: white;"></i></li>
+
+  </ul>
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+<!--link kwa ajiliya kukreate modal--->
+
+
+    <!-- --------- Owl-Carousel js ------------------->
+     <!-- Vendor JS Files -->
+  <script src="{% static 'Quiz_App/assets/js/bootstrap.bundle.min.js' %}"></script>
+
+
+
+    <!-- Custom Javascript file -->
+    <script src="{% static 'Quiz_App/assets/js/main.js' %}"></script>
+
+ <!--jquery code for autocomplete javascriptcode---->
+<script src="{% static 'Quiz_App/assets/jqueryui/external/jquery/jquery.js' %}" type="text/javascript"></script>
+<script src="{% static 'Quiz_App/assets/jqueryui/jquery-ui.js' %}" type="text/javascript"></script>
+
+        <script >
+  $( function() {
+    var availableTags = [
+      "ActionScript",
+      "AppleScript",
+      "Asp",
+      "BASIC",
+      "C",
+      "C++",
+      "Clojure",
+      "COBOL",
+      "ColdFusion",
+      "Erlang",
+      "Fortran",
+      "Groovy",
+      "Haskel",
+      "Java",
+      "JavaScript",
+      "Lisp",
+      "Perl",
+      "PHP",
+      "Python",
+      "Ruby",
+      "Scala",
+      "Scheme"
+
+
+    ];
+
+   $( "#searchii" ). autocomplete({
+    source: "";
+  });
+
+
+  } );
+
+
+
+</script>
+
+
+</body>
+</html>

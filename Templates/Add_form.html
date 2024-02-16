@@ -1,0 +1,67 @@
+{% extends 'common.html' %}
+{% block content %}
+
+{% comment %} <img src="{{x.img.url}}" weight=200px height=200px > {% endcomment %}
+
+<style type="text/css">
+    .card{
+        background-color: #233329;
+        color: white;
+    }
+    .text{
+  color: white;
+}
+</style>
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3 " style="position: fixed;z-index: 1;margin-bottom: 4cm;">
+        <h6><h2  class="m-0 h2 font-weight-bold text-primary">Form Title: {{formtitl}}</h2><br>
+            <button type="button" name="add" id="addcheckbox" class="btn btn-success ml-auto btn-icon-split">
+                <span class="icon text-white-50">
+                    <i class="fas fa-check-square"></i>
+                </span>
+                <span class="text"> Multi-Answer Question</span>
+            </button>
+            <button type="button" name="add" id="addradio" class="btn btn-warning ml-auto btn-icon-split">
+                <span class="icon text-white-50">
+                    <i class="fas fa-dot-circle "></i>
+                </span>
+                <span class="text">Single-Answer Question</span>
+            </button>
+            <button type="button" name="add" id="addtextarea" class="btn btn-info ml-auto btn-icon-split">
+                <span class="icon text-white-50">
+                    <i class="fas fa-bars"></i>
+                </span>
+                <span class="text">Multiple-line-Answer Question</span>
+            </button>
+            <button type="button" name="add" id="add" class="btn btn-dark ml-auto btn-icon-split">
+                <span class="icon text-white-50">
+                    <i class="fas fa-minus"></i>
+                </span>
+                <span class="text">Single-line-Answer Question</span>
+            </button>
+        </h6>
+    </div>
+
+
+    <div style="margin-top: 4cm;justify-content: center;align-self: center;">
+        <span style="color: white;text-align: center;">CREATE QUESTIONS</span>
+    </div>
+
+
+    
+    <div class="card-body">
+        <form action="Add" method="POST" name="add_name" id="add_name" >
+            {% csrf_token %}
+
+            <input type="hidden" name="Formname" value="{{formtitl}}" />
+            <div class="table">
+                <table style="border: none; border-collapse: collapse;" id="dynamic_field" width="100%">
+                </table>
+            </div>
+        </form>
+    </div>
+</div>
+
+<br/>
+{% endblock content %}

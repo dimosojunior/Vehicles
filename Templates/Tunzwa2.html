@@ -1,0 +1,149 @@
+below are my codes that saving my form to the database but when i'm trying to save my form it brings this error 'IndexError at /Add
+list index out of range
+Request Method: POST
+Request URL:  http://127.0.0.1:8000/Add
+Django Version: 4.2.6
+Exception Type: IndexError
+Exception Value:  
+list index out of range
+Exception Location: C:\Users\DIMOSO JR\Desktop\MyDjangoProjects\VehiclesCheckList\Main_Quiz_App\views.py, line 94, in Add'
+
+so i don't know where the error occurs, so by passing through my codes modify them to solve this error;
+my views.py codes are;
+def Add(request):
+    print("QUESTIONS ARE INSERTED SUCCESSFULLY 1")
+    if request.user.is_authenticated:
+        #input from html form
+        formtitl=request.POST.get('Formname',None)        
+        question=request.POST.getlist('question',None)
+        typee=request.POST.getlist('type',None)
+        answer=request.POST.getlist('answer',None)
+        option1=request.POST.getlist('option1',None)
+        option2=request.POST.getlist('option2',None)
+        option3=request.POST.getlist('option3',None)
+        option4=request.POST.getlist('option4',None)
+        no=request.POST.getlist('no',None)
+        user_id=request.user.id        
+        #saving Form name
+        N = 1000000
+        res = ''.join(secrets.choice(string.ascii_uppercase + string.digits)for i in range(N))
+        queryset1 = Formtitle(Form_name=formtitl,User_id=user_id,Form_Url=res)
+        queryset1.save()
+        print("QUESTIONS ARE SAVED SUCCESSFULLY 1")     
+        #getting form id
+        USerForm = Formtitle.objects.filter(Form_name =formtitl,User_id=user_id)
+        formid=USerForm[0]        
+        #formatting questions
+        for i in range(len(question)):
+            if typee[i]=="textarea" or typee[i] =="oneline":
+                noo=request.POST.get(no[i],None)
+                UserFormQuestion=Questions.objects.create(Form=formid,question=question[i],answer=noo,type=typee[i])
+            else:
+                noo=request.POST.getlist(no[i],None)
+                UserFormQuestion=Questions.objects.create(Form=formid,question=question[i],answer=noo,type=typee[i],option1=option1[i],option2=option2[i],option3=option3[i],option4=option4[i])        
+            #saving question to mysql db           
+            UserFormQuestion.save()       
+            #returning to success page        
+        messages.info(request,"Form Created Succesfully!")
+        return redirect('CheckListForms')
+    else:
+        return redirect('login')
+
+my models.py file codes are;
+from django.db import models
+from jsonfield import JSONField
+from django.db import models
+class Formtitle(models.Model):
+    Form_name =models.CharField(max_length=1000)
+    User_id=models.IntegerField()
+    Form_Url=models.CharField(max_length=100)
+    def __str__(self):
+        return self.Form_name
+
+
+
+
+class Questions(models.Model):
+    id = models.AutoField(primary_key=True)
+    Form = models.ForeignKey(Formtitle, on_delete=models.CASCADE)
+    question=models.CharField(max_length=10000)
+    answer=JSONField(max_length=20000)
+    type=models.CharField(max_length=100)
+    option1=models.CharField(max_length=100,blank=True)
+    option2=models.CharField(max_length=100,blank=True)
+    option3=models.CharField(max_length=100,blank=True)
+    option4=models.CharField(max_length=100,blank=True)    
+    def __str__(self):
+        return self.question
+
+
+class FormResponse(models.Model):
+    form = models.ForeignKey(Formtitle, on_delete=models.CASCADE)
+    submit_time = models.DateTimeField(auto_now_add=True)
+    form_name = models.CharField(max_length=100)
+    user_id = models.IntegerField()
+    response_user_id = models.CharField(max_length=255)
+
+    def __str__(self):
+        return f"{self.form_name} submitted by {self.response_user_id}"
+
+and my html templates codes are;
+{% extends 'common.html' %}
+{% block content %}
+
+{% comment %} <img src="{{x.img.url}}" weight=200px height=200px > {% endcomment %}
+
+<style type="text/css">
+    .card{
+        background-color: #233329;
+        color: white;
+    }
+    .text{
+  color: white;
+}
+</style>
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3 ">
+        <h6><h2  class="m-0 h2 font-weight-bold text-primary">Form Title: {{formtitl}}</h2><br>
+            <button type="button" name="add" id="addcheckbox" class="btn btn-success ml-auto btn-icon-split">
+                <span class="icon text-white-50">
+                    <i class="fas fa-check-square"></i>
+                </span>
+                <span class="text"> Multi-Answer Question</span>
+            </button>
+            <button type="button" name="add" id="addradio" class="btn btn-warning ml-auto btn-icon-split">
+                <span class="icon text-white-50">
+                    <i class="fas fa-dot-circle "></i>
+                </span>
+                <span class="text">Single-Answer Question</span>
+            </button>
+            <button type="button" name="add" id="addtextarea" class="btn btn-info ml-auto btn-icon-split">
+                <span class="icon text-white-50">
+                    <i class="fas fa-bars"></i>
+                </span>
+                <span class="text">Multiple-line-Answer Question</span>
+            </button>
+            <button type="button" name="add" id="add" class="btn btn-dark ml-auto btn-icon-split">
+                <span class="icon text-white-50">
+                    <i class="fas fa-minus"></i>
+                </span>
+                <span class="text">Single-line-Answer Question</span>
+            </button>
+        </h6>
+    </div>
+    <div class="card-body">
+        <form action="Add" method="POST" name="add_name" id="add_name" >
+            {% csrf_token %}
+
+            <input type="hidden" name="Formname" value="{{formtitl}}" />
+            <div class="table">
+                <table style="border: none; border-collapse: collapse;" id="dynamic_field" width="100%">
+                </table>
+            </div>
+        </form>
+    </div>
+</div>
+
+<br/>
+{% endblock content %}
